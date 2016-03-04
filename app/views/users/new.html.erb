@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <div class="row ">
+    <div class="col-lg-4 col-lg-offset-4">
+      <span class="input-group form-control ">
+        <h2>Реєстрація</h2>
+
+  <%= form_for :user, url: users_path do |f| %>
+      <p>
+        <%= f.label "Eлектронна пошта" %>  <br>
+        <%= f.text_field :mail, placeholder: "Введіть пошту", class: "form-control", :required => true %>
+      </p>
+
+      <p>
+        <%= f.label "Пароль" %><br>
+        <%= f.password_field :password, placeholder: "Введіть пароль", class: "form-control", :required => true %>
+      </p>
+      <p>
+        <%= f.label "Повторіть пароль" %><br>
+        <%= f.password_field :password_confirmation, placeholder: "Повторіть пароль", class: "form-control", :required => true %>
+      </p>
+      <p>
+        <%= f.submit value='Зареєструватись', class: "btn btn-success" %>
+      </p>
+
+  <% end %>
+
+      </span>
+    </div>
+  </div>
+</div>

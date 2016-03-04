@@ -13,12 +13,12 @@
 
       <div class='navbar-form navbar-right'>
         <% if current_user %>
-            <i class="glyphicon glyphicon-user white"></i> <i style="color: white; margin-right: 10px" ><%= current_user.login %> </i> <a class="btn btn-success" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+            <i class="glyphicon glyphicon-user white"></i> <i style="color: white; margin-right: 10px" ><%= current_user.mail %> </i> <a class="btn btn-success" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Edit profile </a></li>
-              <li><%= link_to user_path(current_user), method: :delete, data: { confirm: 'Your profile will be delete' } do %> <i class="glyphicon glyphicon-trash"> </i> Delete profile </li> <% end %>
+              <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Редагувати профіль </a></li>
+              <li><%= link_to user_path(current_user), method: :delete, data: { confirm: 'Your profile will be delete' } do %> <i class="glyphicon glyphicon-trash"> </i> Видалити профіль </li> <% end %>
                 <li class="divider"></li>
-                <li><%= link_to "Log out", logout_path, method: "delete", class: "btn btn-success" %></li>
+                <li><%= link_to "Вийти", logout_path, method: "delete", class: "btn btn-success" %></li>
                 </ul>
 
 
@@ -26,14 +26,14 @@
 
             <%= form_for(:session, url: login_path) do |f| %>
 
-                <%= f.text_field :login, placeholder: "login", class: "form-control" %>
+                <%= f.text_field :mail, placeholder: "Eлектронна пошта", class: "form-control" %>
 
 
-                <%= f.password_field :password, placeholder: "password", class: "form-control" %>
+                <%= f.password_field :password, placeholder: "Пароль", class: "form-control" %>
 
 
-                <%=  f.submit value='Login', class: "btn btn-success" %>
-                <%= link_to "Sign up", signup_path, method: "get", class: "btn btn-success" %>
+                <%=  f.submit value='Вхід', class: "btn btn-success" %>
+                <%= link_to "Зареєструватись", signup_path, method: "get", class: "btn btn-success" %>
                 </div>
 
             <% end %>
