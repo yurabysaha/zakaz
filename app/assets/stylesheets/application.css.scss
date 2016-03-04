@@ -1,3 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.flash {
+  position: absolute;
+  right: 46%;
+  margin-top: 70px;
+}
