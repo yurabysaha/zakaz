@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :require_user, only: [:edit, :update, :destroy]
   def index
     @users = User.all
   end
@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def create
@@ -21,8 +25,20 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      flash[:success] = "Профіль оновлено"
+      redirect_to '/'
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
-    @user = User.find_by_id(current_user)
+    @user = User.find_by_id(params[:id])
     @user.destroy
     if @user.destroy
       session[:user_id] = nil
@@ -32,6 +48,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:mail, :password, :password_confirmation)
+    params.require(:user).permit(:mail, :password, :password_confirmation, :phone, :address)
   end
 end

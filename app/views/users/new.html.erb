@@ -9,7 +9,6 @@
         <%= f.label "Eлектронна пошта" %>  <br>
         <%= f.text_field :mail, placeholder: "Введіть пошту", class: "form-control", :required => true %>
       </p>
-
       <p>
         <%= f.label "Пароль" %><br>
         <%= f.password_field :password, placeholder: "Введіть пароль", class: "form-control", :required => true %>
@@ -18,6 +17,10 @@
         <%= f.label "Повторіть пароль" %><br>
         <%= f.password_field :password_confirmation, placeholder: "Повторіть пароль", class: "form-control", :required => true %>
       </p>
+      <p>
+        <%= f.label "Номер телефону" %><br>
+        <%= f.phone_field :phone, placeholder: "Введіть номер телефону", class: "form-control", :required => true %>
+       </p>
       <p>
         <%= f.submit value='Зареєструватись', class: "btn btn-success" %>
       </p>

@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <span class="input-group form-control">
+        <h2>Редагувати інформацію</h2>
+
+        <%= form_for :user, url: user_path(@user), method: :patch do |f| %>
+      <p>
+        <%= f.label "Eлектронна пошта" %>  <br>
+        <%= f.text_field :mail, placeholder: "Введіть пошту", class: "form-control", :required => true %>
+      </p>
+      <p>
+        <%= f.label "Номер телефону" %><br>
+        <%= f.phone_field :phone, placeholder: "Введіть номер телефону", class: "form-control", :required => true %>
+      </p>
+      <p>
+        <%= f.label "Адреса доставки" %>  <br>
+        <%= f.text_field :address, placeholder: "Вкажіть адресу", class: "form-control", :required => true %>
+      </p>
+      <p>
+        <%= f.submit value='Зберегти', class: "btn btn-success" %>
+      </p>
+
+  <% end %>
+
+      </span>
+    </div>
+  </div>
+</div>
