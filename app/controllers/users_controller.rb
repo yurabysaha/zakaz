@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      flash[:success] = "Профіль оновлено"
+      flash[:success] = "Профіль успішно оновлено"
       redirect_to '/'
     else
       render 'edit'
