@@ -1,0 +1,25 @@
+<div class="row centered-form">
+  <ul class="nav nav-pills nav-stacked">
+    <li><%= link_to 'Нові замовлення', my_order_path(status: 'new'), method: 'get', class: 'btn btn-success' %></li>
+    <li><%= link_to 'Неоплачені замовлення', my_order_path(status: 'not_paid'), method: 'get', class: 'btn btn-success' %></li>
+    <li><%= link_to 'Оплачені замовлення', my_order_path(status: 'paid'), method: 'get', class: 'btn btn-success' %></li>
+    <li><%= link_to 'В дорозі', my_order_path(status: 'transit'), method: 'get', class: 'btn btn-success' %></li>
+    <li><%= link_to 'Доставлені замовлення', my_order_path(status: 'completed'), method: 'get', class: 'btn btn-success' %></li>
+  </ul>
+
+</div>
+
+<style>
+
+  .centered-form {
+    margin-top: 80px;
+    margin-bottom: 120px;
+    width: 250px;
+    float: left;
+  }
+
+  .centered-form .panel {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+  }
+</style>

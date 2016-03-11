@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :size
       t.integer :quantity
       t.text :u_comment
-      t.string :status
+      t.string :status, default: 'new'
       t.text :a_comment
       t.integer :total_price
 

@@ -14,6 +14,7 @@
 
       <div class='navbar-form navbar-right'>
         <% if current_user %>
+            <%= link_to 'Мої замовлення', my_order_path, method: 'get', class: 'btn btn-success' %>
             <%= link_to 'Зробити замовлення', new_item_path, method: 'get', class: 'btn btn-success' %>
             <i class="glyphicon glyphicon-user white"></i> <i style="color: white; margin-right: 10px" ><%= current_user.mail %> </i> <a class="btn btn-success" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">

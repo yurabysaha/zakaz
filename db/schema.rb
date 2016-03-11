@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 20160307074350) do
     t.string   "size"
     t.integer  "quantity"
     t.text     "u_comment"
-    t.string   "status"
+    t.string   "status",      default: "new"
     t.text     "a_comment"
     t.integer  "total_price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id"

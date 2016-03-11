@@ -1,0 +1,44 @@
+<%= render 'items/orderbar' %>
+
+<div class="item_conteiner">
+<% @items.each do |i| %>
+    <div class="item">
+     <div class="panel panel-default">
+       <div class="panel-body">
+         <table>
+           <tr>
+             <td>
+               Дата замовлення
+             </td>
+             <td>
+               Назва товару
+             </td>
+             <td>
+              Ціна
+             </td>
+             <td rowspan="2"> <%= link_to "Деталі", item_path(i.id) %> </td>
+           </tr>
+           <tr>
+             <td>
+             <%= i.created_at %>
+             </td>
+             <td>
+               <%= i.name %>
+             </td>
+             <td>
+               <%= i.price %>
+             </td>
+           </tr>
+
+         </table>
+       </div>
+     </div>
+    </div>
+<% end %>
+</div>
+
+
+
+
+
+

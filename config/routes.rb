@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   resources :users, :sessions, :items
 
-  get '/signup'  => 'users#new'
+  get '/my_order' => 'items#my_order'
 
+  get '/signup'  => 'users#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
