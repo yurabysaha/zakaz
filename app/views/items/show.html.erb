@@ -1,0 +1,36 @@
+<%= render 'items/orderbar' %>
+
+
+<div class="show_item">
+  <h3>Інформація про замовлення</h3>
+
+     <i> URL:</i> <%= @item.url %> <br>
+     <i> Назва товару:</i> <%= @item.name %> <br>
+     <i> Розмір:</i> <%= @item.size %> <br>
+     <i> Колір:</i> <%= @item.color %> <br>
+     <i> Кількість:</i> <%= @item.quantity %> <br>
+     <i> Цiна:</i> <%= @item.price %> <br>
+     <i> Коментарі:</i> <%= @item.u_comment %> <br>
+  <br>
+<% if @item.status != 'new' %>
+  <h3>Інформація про оплату</h3>
+
+  <table>
+    <tr>
+      <td> Ціна товару </td>
+      <td> Ціна доставки </td>
+      <td> Комісія </td>
+      <td> Загальна ціна </td>
+    </tr>
+    <tr>
+      <td> <%= @item.price %> </td>
+      <td> 0 </td>
+      <td> 15% </td>
+      <td> 4678 </td>
+    </tr>
+
+  </table>
+      <% else %>
+      <h3>Товар опрацьовується менеджером</h3>
+  <% end %>
+</div>

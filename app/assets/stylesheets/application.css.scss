@@ -19,10 +19,37 @@
 }
  table {
    width: 850px;
-  align-content: center;
+   align-content: center;
    border-collapse: separate;
    border-spacing: 20px;
 
 } td {
   text-align: center;
    }
+
+.show_item {
+  float: left;
+  height: 500px;
+  width: 500px;
+
+  border: 1px solid gainsboro;
+  padding: 15px;
+  margin-top: 100px;
+  margin-left: 100px;
+  box-shadow: rgba(0, 0, 0, 0.3) 15px 15px 15px;
+
+}
+.show_item h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid gainsboro;
+}
+.show_item i {
+  padding-right: 10px;
+  font-size: 18px;
+}
+.show_item table {
+  font-size: 16px;
+  width: auto;
+}
