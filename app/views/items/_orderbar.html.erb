@@ -5,6 +5,9 @@
     <li><%= link_to 'Оплачені замовлення', my_order_path(status: 'paid'), method: 'get', class: 'btn btn-success' %></li>
     <li><%= link_to 'В дорозі', my_order_path(status: 'transit'), method: 'get', class: 'btn btn-success' %></li>
     <li><%= link_to 'Доставлені замовлення', my_order_path(status: 'completed'), method: 'get', class: 'btn btn-success' %></li>
+    <% if current_user.role == 'admin' %>
+    <li><%= link_to 'Список користувачів', users_path, method: 'get', class: 'btn btn-success' %></li>
+  <% end %>
   </ul>
 
 </div>

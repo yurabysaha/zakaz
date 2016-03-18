@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration
       t.text :u_comment
       t.string :status, default: 'new'
       t.text :a_comment
+      t.string :delivery_price
       t.integer :total_price
 
       t.timestamps null: false
