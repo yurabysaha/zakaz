@@ -1,0 +1,46 @@
+<%= render 'order/orderbar' %>
+
+<div class="col-md-8 cartTable">
+  <table class="col-md-12">
+        <% @order.order_items.each do |oi| %>
+            <tr>
+              <th>
+                <%= oi.name %>
+              </th>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Товар : <%= oi.url %><br>
+                Розмір : <%= oi.size %><br>
+                Колір : <%= oi.color %><br>
+              </td>
+              <td>
+                Ціна : <%= oi.unit_price %><br>
+              </td>
+              <td>
+                Кількість : <%= oi.quantity %><br>
+              </td>
+              <td>
+                Разом : <%= oi.total_price %><br>
+              </td>
+            </tr>
+        <% end %>
+        <tr>
+          <td>
+          </td>
+          <td>
+          </td>
+          <td>
+          </td>
+          <td>
+            Разом : <%= @order.subtotal %><br>
+          </td>
+        </tr>
+  </table>
+</div>

@@ -1,0 +1,70 @@
+<div class="col-md-8 cartTable">
+  <table class="col-md-12">
+    <% if current_order.subtotal != 0 %>
+  <% @order_items.each do |oi| %>
+     <tr>
+       <th class="">
+         <%= oi.name %>
+       </th>
+       <td>
+       </td>
+       <td>
+       </td>
+       <td>
+       </td>
+       <td>
+         <%= link_to edit_order_item_path(oi), method: :get do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+           |  <%= link_to delete_path(oi), method: :delete, data: { confirm: 'Ви впевнені?' } do %><i class="glyphicon glyphicon-trash"></i><% end %>
+       </td>
+     </tr>
+     <tr>
+      <td>
+        Товар : <%= oi.url %><br>
+        Розмір : <%= oi.size %><br>
+        Колір : <%= oi.color %><br>
+     </td>
+     <td>
+       Ціна : <%= oi.unit_price %><br>
+     </td>
+     <td>
+       Кількість : <%= oi.quantity %><br>
+     </td>
+     <td>
+       Разом : <%= oi.total_price %><br>
+     </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+        Разом : <%= current_order.subtotal %><br>
+      </td>
+    </tr>
+        <% else %>
+        <tr>
+          <td>
+             В корзині немає жодного товару, додайте замовлення!
+          </td>
+        </tr>
+    <% end %>
+  </table>
+  <%= link_to 'Додати ще один товар', new_order_path, method: 'get', class: 'btn btn-success' %>
+</div>
+<div class="col-md-4 ">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">Оформити замовлення</h3>
+   </div>
+    <div class="panel-body">
+      Ціна замовлення : <%= current_order.inhrn %> грн<br>
+      Комісія : <%= current_order.tax %> %<br>
+      Загальна сумма : <%= current_order.total %> грн<br>
+    </div>
+    <% if current_order.subtotal != 0 %>  <%= link_to 'Оформити', make_order_path(current_order.id), method: 'get', class: 'btn btn-success col-md-12' %> <% end %>
+  </div>
+</div>

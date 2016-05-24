@@ -1,0 +1,45 @@
+<div class="container">
+      <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title text-center">Редагувати інформацію</h3>
+            </div>
+            <div class="panel-body">
+
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>                  <div class="form-group">
+                    <%= f.label 'Електронна пошта' %>
+                    <%= f.text_field :email, placeholder: 'Введіть пошту', class: 'form-control', :required => true %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label 'Номер телефону' %>
+                    <%= f.phone_field :phone, placeholder: 'Введіть номер телефону', class: 'form-control', :required => true %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label 'Адреса доставки' %>
+                    <%= f.text_field :address, placeholder: 'Вкажіть адресу доставки', class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                  <%= f.label 'Ваш пароль' %>
+                  <%= f.password_field :current_password, placeholder: 'Вкажіть ваш пароль для підтвердження', class: 'form-control' %>
+                  </div>
+                  <%= f.submit value: 'Зберегти', class: 'btn btn-block btn-success' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+
+      .centered-form {
+        margin-top: 120px;
+        margin-bottom: 120px;
+      }
+
+      .centered-form .panel {
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+      }
+    </style>

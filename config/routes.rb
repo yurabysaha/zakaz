@@ -1,24 +1,26 @@
 Rails.application.routes.draw do
 
-  resources :users, :sessions, :items
+  devise_for :users
+  resources  :index, :order
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :edit]
 
-  get '/my_order' => 'items#my_order'
+  resource :admin, only: [:index]
+    post 'admin/login' => 'admin#login', as: :admin_login
 
-  get '/signup'  => 'users#new'
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
 
+  delete '/order_items/:id' => 'order_items#destroy', as: :delete
+  patch '/order_items/:id' => 'order_items#update', as: :update_item
+  get '/make_order/:id' => 'order#make_order', as: :make_order
+  get '/my_order' => 'order#my_order'
 
   get '/admin' => 'admin#index'
-  get '/admin/orders' => 'admin#orders'
 
-  # The priority is based upon order of creation: first created -> highest priority.
+  # The priority is based upon order_items of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sessions#index'
-
+  root 'index#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

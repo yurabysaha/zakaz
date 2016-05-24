@@ -11,21 +11,22 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <div class='navbar-form navbar-right'>
-        <% if current_user %>
+        <% if user_signed_in? %>
             <%= link_to 'Мої замовлення', my_order_path, method: 'get', class: 'btn btn-success' %>
-            <%= link_to 'Зробити замовлення', new_item_path, method: 'get', class: 'btn btn-success' %>
-            <i class="glyphicon glyphicon-user white"></i> <i style="color: white; margin-right: 10px" ><%= current_user.mail %> </i> <a class="btn btn-success" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+            <%= link_to 'Зробити замовлення', new_order_path, method: 'get', class: 'btn btn-success' %>
+            <%= link_to 'Корзина', cart_path, method: 'get', class: 'btn btn-success' %>
+            <i class="glyphicon glyphicon-user white"></i> <i style="color: white; margin-right: 10px" ><%= current_user.email %> </i> <a class="btn btn-success" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to edit_user_path(current_user) do %> <i class="glyphicon glyphicon-pencil"> </i> Редагувати профіль </li> <% end %>
+              <li><%= link_to  edit_user_registration_path do %> <i class="glyphicon glyphicon-pencil"> </i> Редагувати профіль </li> <% end %>
               <li class="divider"></li>
-              <li><%= link_to 'Вийти', logout_path, method: 'delete', class: 'btn btn-success' %></li>
+              <li><%= link_to 'Вийти', destroy_user_session_path, method: 'delete', class: 'btn btn-success' %></li>
             </ul>
         <% else %>
-            <%= form_for(:session, url: login_path) do |f| %>
-                <%= f.text_field :mail, placeholder: 'Eлектронна пошта', class: 'form-control' %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= f.email_field :email, placeholder: 'Eлектронна пошта', class: 'form-control' %>
                 <%= f.password_field :password, placeholder: 'Пароль', class: 'form-control' %>
-                <%=  f.submit value='Вхід', class: 'btn btn-success' %>
-                <%= link_to 'Зареєструватись', signup_path, method: 'get', class: 'btn btn-success' %>
+                <%= f.submit value='Вхід', class: 'btn btn-success' %>
+                <%= link_to 'Зареєструватись',  new_user_registration_path, class: 'btn btn-success' %>
             <% end %>
         <% end %>
       </div>
