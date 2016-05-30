@@ -1,0 +1,60 @@
+<%= render 'admin/orders/type' %>
+  <div class="col-md-8">
+    <% @orders.each do |i| %>
+        <div class="col-md-12 item">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <table class="admin_orders_table">
+                <tr>
+                  <td>
+                    <i class="glyphicon glyphicon-calendar"> </i> Дата замовлення
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-tag"> </i> Номер замовлення
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-tag"> </i> Кількість товарів
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-credit-card"> </i> Загальна ціна
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-user"> </i> Користувач
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-user"> </i> Cтатус
+                  </td>
+                  <td style="width: 50px" rowspan="2"> <%= link_to 'Деталі', admin_order_path(i.id) %> </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= i.created_at.strftime("%d-%m-%Y %H:%M") %>
+                  </td>
+                  <td>
+                    <%= i.id %>
+                  </td>
+                  <td>
+                    <%= i.order_items.size %>
+                  </td>
+                  <td>
+                    <%= i.total %> грн
+                  </td>
+                  <td>
+                    <%= i.user.email %>
+                  </td>
+                  <td>
+                    <%= i.status %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+
+
+
+
+

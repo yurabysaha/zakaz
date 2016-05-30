@@ -1,8 +1,10 @@
 class Order < ActiveRecord::Base
 
   has_many :order_items
-  has_one :user
+  belongs_to :user
   before_save :update_subtotal
+
+  STATUS_TYPE = { "Новий" => "new", "Неоплачено" => "not_paid", "Оплачено" => "paid", "В дорозі" => "transit", "Доставлено" => "completed" }
 
   def subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum

@@ -1,0 +1,13 @@
+<div class="btn-group-vertical col-md-2" role="group" aria-label="...">
+
+  <%= link_to 'Нові', admin_show_orders_path(status: 'new'), class: 'btn btn-default btn-lg' %>
+
+  <%= link_to 'Неоплачені', admin_show_orders_path(status: 'not_paid'), class: 'btn btn-default btn-lg' %>
+
+  <%= link_to 'Оплачені', admin_show_orders_path(status: 'paid'), class: 'btn btn-default btn-lg' %>
+
+  <%= link_to 'В дорозі', admin_show_orders_path(status: 'transit'), class: 'btn btn-default btn-lg' %>
+
+  <%= link_to 'Доставлені', admin_show_orders_path(status: 'completed'), class: 'btn btn-default btn-lg' %>
+
+</div>

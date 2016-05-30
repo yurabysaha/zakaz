@@ -2,7 +2,6 @@ class OrderItem < ActiveRecord::Base
   belongs_to :user
   has_one :order
 
-  STATUS_TYPE = { "Новий" => "new", "Неоплачено" => "not_paid", "Оплачено" => "paid", "В дорозі" => "transit", "Доставлено" => "completed" }
 
   #validates :url, :name, :unit_price, :color, :size, :quantity, :total_price, presence: true
   #validates :quantity, numericality: { only_integer: true, greater_than: 0 }

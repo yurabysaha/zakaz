@@ -19,7 +19,7 @@
      </tr>
      <tr>
       <td>
-        Товар : <%= oi.url %><br>
+        Товар : <%= link_to oi.url, oi.url %><br>
         Розмір : <%= oi.size %><br>
         Колір : <%= oi.color %><br>
      </td>
@@ -62,7 +62,7 @@
    </div>
     <div class="panel-body">
       Ціна замовлення : <%= current_order.inhrn %> грн<br>
-      Комісія : <%= current_order.tax %> %<br>
+      Комісія : 20 %<br>
       Загальна сумма : <%= current_order.total %> грн<br>
     </div>
     <% if current_order.subtotal != 0 %>  <%= link_to 'Оформити', make_order_path(current_order.id), method: 'get', class: 'btn btn-success col-md-12' %> <% end %>
