@@ -1,5 +1,50 @@
 <%= render 'admin/orders/type' %>
+
 <div class="col-md-8 cartTable">
+  <table class="col-md-12">
+    <tr>
+      <td>
+        <i class="glyphicon glyphicon-calendar"> </i> Дата замовлення
+      </td>
+      <td>
+        <i class="glyphicon glyphicon-tag"> </i> Номер замовлення
+      </td>
+      <td>
+        <i class="glyphicon glyphicon-tag"> </i> Кількість товарів
+      </td>
+      <td>
+        <i class="glyphicon glyphicon-credit-card"> </i> Загальна ціна
+      </td>
+      <td>
+        <i class="glyphicon glyphicon-user"> </i> Користувач
+      </td>
+      <td>
+        <i class="glyphicon glyphicon-user"> </i> Cтатус
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= @order.created_at.strftime("%d-%m-%Y %H:%M") %>
+      </td>
+      <td>
+        <%= @order.id %>
+      </td>
+      <td>
+        <%= @order.order_items.size %>
+      </td>
+      <td>
+        <%= @order.total %> грн
+      </td>
+      <td>
+        <%= @order.user.email %>
+      </td>
+      <td>
+        <%= @order.status %>
+      </td>
+    </tr>
+  </table>
+
+
   <table class="col-md-12">
     <% @order.order_items.each do |oi| %>
         <tr>
@@ -11,6 +56,10 @@
           <td>
           </td>
           <td>
+          </td>
+          <td>
+            <%= link_to edit_admin_order_path(oi), method: :get do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+            |  <%= link_to admin_order_path(oi), method: :delete, data: { confirm: 'Ви впевнені?' } do %><i class="glyphicon glyphicon-trash"></i><% end %>
           </td>
         </tr>
         <tr>
@@ -31,15 +80,48 @@
         </tr>
     <% end %>
     <tr>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
+      <td></td>
+      <td></td>
+      <td></td>
       <td>
         Разом : <%= @order.subtotal %><br>
       </td>
     </tr>
   </table>
+
+
+
+
+    <table class="col-md-12">
+      <tr>
+        <td> # </td>
+        <td> Імя </td>
+        <td> Прізвище </td>
+        <td> Електронна пошта </td>
+        <td> Номер телефону </td>
+        <td> Адреса </td>
+      </tr>
+       <tr>
+         <td> <%= @order.user.id %> </td>
+         <td> <%= @order.user.first_name %> </td>
+         <td> <%= @order.user.last_name %> </td>
+         <td> <%= @order.user.email %> </td>
+         <td> <%= @order.user.phone %> </td>
+         <td> <%= @order.user.address %> </td>
+       </tr>
+
+    </table>
 </div>
+
+
+<!--
+<div class="dropdown">
+  <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Змінити статус <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Новий</a></li>
+    <li><a href="#">Неоплачений</a></li>
+    <li><a href="#">Оплачений</a></li>
+    <li><a href="#">В дорозі</a></li>
+    <li><a href="#">Доставлений</a></li>
+  </ul>
+</div>-->

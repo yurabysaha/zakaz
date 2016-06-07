@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row col-md-10 statistic-table">
+    <div class="col-md-3 panel panel-success">
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <span class="glyphicon glyphicon-user"></span>
+      </div>
+      <div class="col-xs-9 col-sm-9 col-md-9">
+        <%= User.count %>
+        <p>Користувачів</p>
+      </div>
+    </div>
+    <div class="col-md-3 row panel panel-success">
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <span class="glyphicon glyphicon-gift"></span>
+      </div>
+      <div class="col-xs-9 col-sm-9 col-md-9">
+        <%= Order.count %>
+        <p>Зроблено замовлень</p>
+      </div>
+    </div>
+      <div class="col-md-3 row panel panel-success">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <span class="glyphicon glyphicon-lock"></span>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <%= OrderItem.count %>
+          <p>Товарів замовлено</p>
+        </div>
+      </div>
+    <div class="col-md-3 row panel panel-success">
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <span class="glyphicon glyphicon-lock"></span>
+      </div>
+      <div class="col-xs-9 col-sm-9 col-md-9">
+        <%= Order.where(:status => 'completed').count%>
+        <p>Виконано замовлень</p>
+      </div>
+    </div>
+  </div>
+</div>

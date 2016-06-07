@@ -8,13 +8,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Admin</a>
+      <a class="navbar-brand" href="/admin">Admin</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/admin">Link <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -36,7 +36,7 @@
         <button type="submit" class="btn btn-default">Пошук</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="/admin/show_orders?status=new">Нові <span class="badge"> <%= Order.where(:status => 'new').count%></span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -53,13 +53,14 @@
 </nav>
 
 <div class="btn-group-vertical col-md-1" role="group" aria-label="...">
-  <%= link_to '/admin', class: 'btn btn-default btn-lg' do %>
-  <i class="glyphicon glyphicon-list-alt"></i>
+  <%= link_to admin_orders_path, class: 'btn btn-default btn-lg' do %>
+    <i class="glyphicon glyphicon-list-alt"></i>
   <% end %>
 
   <%= link_to admin_users_path, class: 'btn btn-default btn-lg' do %>
     <i class="glyphicon glyphicon-user"></i>
   <% end %>
+
   <%= link_to admin_path, class: 'btn btn-default btn-lg' do %>
     <i class="glyphicon glyphicon-cog"></i>
     <% end %>

@@ -1,6 +1,6 @@
 class OrderItem < ActiveRecord::Base
   belongs_to :user
-  has_one :order
+  belongs_to :order
 
 
   #validates :url, :name, :unit_price, :color, :size, :quantity, :total_price, presence: true

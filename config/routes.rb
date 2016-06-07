@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/make_order/:id' => 'order#make_order', as: :make_order
   get '/my_order' => 'order#my_order'
 
-  get "/admin" => "admin/orders#index"
+  get "/admin" => "admin/orders#dashboard"
   namespace :admin do
     resources :orders, :users
     get '/show_orders' => 'orders#show_orders', as: :show_orders

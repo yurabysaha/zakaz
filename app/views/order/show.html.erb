@@ -7,27 +7,24 @@
               <th>
                 <%= oi.name %>
               </th>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
-            <tr>
+            <tr class="tr">
               <td>
                 Товар : <%= link_to oi.url, oi.url %><br>
                 Розмір : <%= oi.size %><br>
                 Колір : <%= oi.color %><br>
               </td>
               <td>
-                Ціна : <%= oi.unit_price %><br>
+                Ціна : <br> <%= oi.unit_price %> Ft
               </td>
               <td>
-                Кількість : <%= oi.quantity %><br>
+                Кількість : <br> <%= oi.quantity %>
               </td>
               <td>
-                Разом : <%= oi.total_price %><br>
+                Разом : <br> <%= oi.total_price %> Ft
               </td>
             </tr>
         <% end %>
@@ -39,7 +36,7 @@
           <td>
           </td>
           <td>
-            Разом : <%= @order.subtotal %><br>
+            Разом : <%= @order.subtotal %> Ft<br>
           </td>
         </tr>
   </table>
