@@ -14,7 +14,7 @@
                     <%= f.text_field :last_name, class: 'form-control input-sm', placeholder: 'Прізвище' %>
                   </div>
                   <div class="form-group">
-                    <%= f.text_field :email, class: 'form-control input-sm', placeholder: 'Введіть пошту' %>
+                    <%= f.text_field :email, class: 'form-control input-sm', placeholder: 'Електронна пошта' %>
                   </div>
                   <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
@@ -29,7 +29,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <%= f.telephone_field :phone, class: 'form-control input-sm', placeholder: 'Введіть номер телефону' %>
+                    <%= f.telephone_field :phone, class: 'form-control input-sm', placeholder: 'Введіть номер телефону', title: 'Потрібно для того щоб наш менеджер міг зв\'язатися з вами після того як ви оформите замовлення' %>
                   </div>
                   <%= f.submit value: 'Зареєструватись', class: 'btn btn-block btn-success' %>
               <% end %>

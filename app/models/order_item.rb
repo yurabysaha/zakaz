@@ -3,8 +3,8 @@ class OrderItem < ActiveRecord::Base
   belongs_to :order
 
 
-  #validates :url, :name, :unit_price, :color, :size, :quantity, :total_price, presence: true
-  #validates :quantity, numericality: { only_integer: true, greater_than: 0 }
+  validates :url, :name, :unit_price, :color, :size, :quantity, presence: true
+  validates :quantity, numericality: { only_integer: true, greater_than: 0 }
 
   before_save :finalize
 

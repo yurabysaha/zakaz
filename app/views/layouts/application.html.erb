@@ -8,15 +8,16 @@
 </head>
 <body>
 <div class="container-fluid">
-<%= render 'layouts/navbar' %>
+  <%= render 'layouts/navbar' %>
 
-  <div class="flash">
-  <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
-</div>
+    <div class="flash">
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    </div>
 
-<%= yield %>
+  <%= yield %>
+  <%= render 'layouts/footer' %>
 </div>
 </body>
 </html>

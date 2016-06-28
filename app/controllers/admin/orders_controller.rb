@@ -39,6 +39,14 @@ class Admin::OrdersController < Admin::ApplicationController
     @order_items = @order.order_items
     redirect_to :back
   end
+
+
+  def update_status
+    @order = Order.find(params[:id])
+    @order.status=params[:status]
+    @order.save
+    redirect_to :back
+  end
   private
 
   def item_params

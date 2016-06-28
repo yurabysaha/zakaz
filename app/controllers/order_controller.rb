@@ -1,7 +1,4 @@
 class OrderController < ApplicationController
-  def index
-    @orders = Order.all
-  end
 
   def make_order
     @order = current_order

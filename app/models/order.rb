@@ -6,9 +6,12 @@ class Order < ActiveRecord::Base
 
   STATUS_TYPE = { "Новий" => "new", "Неоплачено" => "not_paid", "Оплачено" => "paid", "В дорозі" => "transit", "Доставлено" => "completed" }
 
+
+
   def subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
+
 
   private
 

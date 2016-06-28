@@ -15,9 +15,11 @@ Rails.application.routes.draw do
   get '/my_order' => 'order#my_order'
 
   get "/admin" => "admin/orders#dashboard"
+  get "/info" => "index#info", as: :info
   namespace :admin do
     resources :orders, :users
     get '/show_orders' => 'orders#show_orders', as: :show_orders
+    get '/update_status/:id' => 'orders#update_status', as: :update_status
   end
   # The priority is based upon order_items of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

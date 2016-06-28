@@ -7,37 +7,37 @@
         <div class="panel-body">
           <%= form_for :item, url: order_items_path, method: :post do |f| %>
               <div class="form-group">
-                <%= f.text_field :url, class: 'form-control input-sm', placeholder: 'Вставте url...' %>
+                <%= f.text_field :url, class: 'form-control input-sm', placeholder: '*Вставте url...', title: 'Скопіюйте сюди посилання на товар який бажаєте придбати'%>
               </div>
               <div class="form-group">
-                <%= f.text_field :name, class: 'form-control input-sm', placeholder: 'Введіть назву товара...' %>
+                <%= f.text_field :name, class: 'form-control input-sm', placeholder: '*Введіть назву товара...' %>
               </div>
               <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <%= f.text_field :size, class: 'form-control input-sm', placeholder: 'Введіть розмір...' %>
+                    <%= f.text_field :size, class: 'form-control input-sm', placeholder: '*Введіть розмір...' %>
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <%= f.text_field :unit_price, class: 'form-control input-sm', placeholder: 'Введіть ціну...Ft' %>
+                    <%= f.text_field :unit_price, class: 'form-control input-sm', placeholder: '*Введіть ціну...Ft' %>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <%= f.text_field :color, class: 'form-control input-sm', placeholder: 'Колір...' %>
+                    <%= f.text_field :color, class: 'form-control input-sm', placeholder: '*Колір...' %>
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <%= f.number_field :quantity, class: 'form-control input-sm', placeholder: 'Кількість...' %>
+                    <%= f.number_field :quantity, class: 'form-control input-sm', placeholder: '*Кількість...' %>
                   </div>
                 </div>
               </div>
               <div class="form-group">
-                <%= f.text_area :u_comment, class: 'form-control input-sm', placeholder: 'Коментарі/Побажання...' %>
+                <%= f.text_area :u_comment, class: 'form-control input-sm', placeholder: 'Бажаєте залишити коментар/побажання?' %>
               </div>
               <%= f.submit value: 'Додати в корзину', class: 'btn btn-block btn-success' %>
           <% end %>

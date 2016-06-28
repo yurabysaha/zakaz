@@ -10,16 +10,25 @@
         <i class="glyphicon glyphicon-tag"> </i> Номер замовлення
       </td>
       <td>
-        <i class="glyphicon glyphicon-tag"> </i> Кількість товарів
+        <i class="glyphicon glyphicon-tag"> </i> К-сть товарів
       </td>
       <td>
         <i class="glyphicon glyphicon-credit-card"> </i> Загальна ціна
       </td>
       <td>
-        <i class="glyphicon glyphicon-user"> </i> Користувач
+        <i class="glyphicon glyphicon-flag"> </i> Cтатус
       </td>
-      <td>
-        <i class="glyphicon glyphicon-user"> </i> Cтатус
+      <td rowspan="2">
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Змінити статус <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%=link_to 'Новий', admin_update_status_path(:status => 'new') %></li>
+            <li><%=link_to 'Неоплачений', admin_update_status_path(:status => 'not_paid') %></li>
+            <li><%=link_to 'Оплачений', admin_update_status_path(:status => 'paid') %></li>
+            <li><%=link_to 'В дорозі', admin_update_status_path(:status => 'transit') %></li>
+            <li><%=link_to 'Доставлено', admin_update_status_path(:status => 'completed') %></li>
+          </ul>
+        </div>
       </td>
     </tr>
     <tr>
@@ -36,9 +45,6 @@
         <%= @order.total %> грн
       </td>
       <td>
-        <%= @order.user.email %>
-      </td>
-      <td>
         <%= @order.status %>
       </td>
     </tr>
@@ -51,12 +57,9 @@
           <th>
             <%= oi.name %>
           </th>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td>
             <%= link_to edit_admin_order_path(oi), method: :get do %><i class="glyphicon glyphicon-pencil"></i><% end %>
             |  <%= link_to admin_order_path(oi), method: :delete, data: { confirm: 'Ви впевнені?' } do %><i class="glyphicon glyphicon-trash"></i><% end %>
@@ -76,6 +79,11 @@
           </td>
           <td>
             Разом : <%= oi.total_price %><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Коментарі : <%= oi.u_comment %><br>
           </td>
         </tr>
     <% end %>
@@ -114,14 +122,5 @@
 </div>
 
 
-<!--
-<div class="dropdown">
-  <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Змінити статус <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#">Новий</a></li>
-    <li><a href="#">Неоплачений</a></li>
-    <li><a href="#">Оплачений</a></li>
-    <li><a href="#">В дорозі</a></li>
-    <li><a href="#">Доставлений</a></li>
-  </ul>
-</div>-->
+
+
